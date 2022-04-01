@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4EFU6YlFKLygLkpsBt9hs2JYyw4kfQ8b9PSE9J+TFgO6RxXwng4bi0e+ZbGdN0gnpcCZyHHSvQHuKFoIxYJdaw==",
+  "dgSpecHash": "5/Zf6LgwTJGrV+wbgiIs4qbFH2I2K0deh6o8eGTy4bcHkf04pjRrk8IDHzX5i/lgBerSQlfG7r3C5dIzLincKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\MarvinHöck_e62hf9r\\source\\repos\\ReiseZiele\\ReiseZiele\\ReiseZiele.csproj",
   "expectedPackageFiles": [
@@ -33,7 +33,6 @@
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
-    "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512",
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\MarvinHöck_e62hf9r\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

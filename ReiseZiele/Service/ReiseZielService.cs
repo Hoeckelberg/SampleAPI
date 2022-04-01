@@ -9,33 +9,68 @@ namespace ReiseZiele.Service
         {
             _repo = repo;
         }
-        public IEnumerable<GetReiseZielDTO> GetAll()
+        public List<GetReiseZielDTO> GetAll()
         {
             var result = _repo.GetAll();
-            return (IEnumerable<GetReiseZielDTO>)result;
+            var list = new List<GetReiseZielDTO>();
+            foreach (var item in result)
+            {
+                list.Add(new GetReiseZielDTO()
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Description = item.Description
+                });
+            }
+            return list;
         }
         public GetReiseZielDTO GetById(int id)
         {
             var result = _repo.GetById(id);
             if (result != null)
             {
-                return new GetReiseZielDTO(result.Id, result.Name, result.Description);
+                return new GetReiseZielDTO()
+                {
+                    Id=result.Id,
+                    Name=result.Name,
+                    Description=result.Description
+                };
             }
             return null;
         }
-        public PostReiseZielDTO Create(ReiseZiel postReise)
+        public GetReiseZielDTO Create(PostReiseZielDTO postReiseDTO)
         {
-            //var result = _repo.Create(postReise);
-            return new PostReiseZielDTO(postReise.Name, postReise.Description);
-        }
-        public GetReiseZielDTO DeleteById(int id)
-        {
-            var result = "test";//_repo.DeleteById(id);
-            if (result != null)
+            var result = _repo.Create(new ReiseZiel(postReiseDTO.Name, postReiseDTO.Description));
+            return new GetReiseZielDTO()
             {
-
+                Id = result.Id,
+                Name = result.Name,
+                Description = result.Description
+            };
+        }
+        public void DeleteById(int id)
+        {
+            var result = _repo.GetById(id);
+            if (result == null)
+            {
+                throw new Exception("Entity not found");
             }
-            throw new NotImplementedException();
+            _repo.DeleteById(result);
+        }
+        public GetReiseZielDTO UpdateReiseZiel(int id, UpdateReiseZielDTO updateReiseZielDTO)
+        {
+            var getbyId = _repo.GetById(id);
+            if (getbyId == null)
+            {
+                throw new Exception("ID was not found");
+            }
+            var result = _repo.Update(getbyId);
+            return new GetReiseZielDTO()
+            {
+                Id = result.Id,
+                Name = result.Name,
+                Description = result.Description
+            };
         }
     }
 }

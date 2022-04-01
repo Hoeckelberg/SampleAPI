@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReiseZiele;
+using ReiseZiele.Service;
 
 namespace Reiseziele.Controllers
 {
@@ -8,43 +9,41 @@ namespace Reiseziele.Controllers
     [ApiController]
     public class ReiseZieleController : ControllerBase
     {
-        //private readonly ReiseZielService reiseService;
-        //private readonly DataContext context;
+        private readonly ReiseZielService _reiseService;
 
-        //public ReiseZieleController(ReiseZielService reiseService, DataContext context)
-        //{
-        //    this.reiseService = reiseService;
-        //    this.context = context;
-        //}
-        //[HttpGet]
-        //public IActionResult GetAllReiseZiele()
-        //{
-        //    var result = reiseService.GetAllReiseZiele();
-        //    return Ok(result);
-        //}
-        //[HttpGet("{id}")]
-        //public IActionResult GetReiseZielById(int id)
-        //{
-        //    var result = reiseService.GetReiseZiel(id);
-        //    return Ok(result);
-        //}
-        //[HttpPost]
-        //public IActionResult PostReiseZiel(PostReiseZielDTO postReiseZielDTO)
-        //{
-        //    var result = reiseService.CreateReiseZiel(postReiseZielDTO);
-        //    return Ok(result);
-        //}
-        //[HttpPut("{id}")]
-        //public IActionResult UpdateReiseZiel(int id, UpdateReiseZielDTO updateReiseZielDTO)
-        //{
-        //    var result = reiseService.UpdateReiseZiel(id, updateReiseZielDTO);
-        //    return Ok(result);
-        //}
-        //[HttpDelete("{id}")]
-        //public IActionResult DeleteReiseZiel(int id)
-        //{
-        //    reiseService.DeleteReiseZiel(id);
-        //    return NoContent();
-        //}
+        public ReiseZieleController(ReiseZielService reiseZielService)
+        {
+            _reiseService = reiseZielService;
+        }
+        [HttpGet]
+        public IActionResult GetAllReiseZiele()
+        {
+            var result = _reiseService.GetAll();
+            return Ok(result);
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetReiseZielById(int id)
+        {
+            var result = _reiseService.GetById(id);
+            return Ok(result);
+        }
+        [HttpPost]
+        public IActionResult PostReiseZiel(PostReiseZielDTO postReiseZielDTO)
+        {
+            var result = _reiseService.Create(postReiseZielDTO);
+            return Ok(result);
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateReiseZiel(int id, UpdateReiseZielDTO updateReiseZielDTO)
+        {
+            var result = _reiseService.UpdateReiseZiel(id, updateReiseZielDTO);
+            return Ok(result);
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteReiseZiel(int id)
+        {
+            _reiseService.DeleteById(id);
+            return NoContent();
+        }
     }
 }

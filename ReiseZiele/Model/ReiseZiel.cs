@@ -9,8 +9,8 @@ namespace Reiseziele
         public string Description { get; set; }
         public ReiseZiel(string name, string description)
         {
-            var rand = new Random();
-            Id = rand.Next(101);
+            //var rand = new Random();
+            //Id = rand.Next(101);
             Name = name;    
             Description = description;
         }
