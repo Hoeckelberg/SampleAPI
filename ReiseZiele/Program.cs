@@ -1,6 +1,8 @@
 global using ReiseZiele.Data;
 using Microsoft.EntityFrameworkCore;
 using ReiseZiele;
+using ReiseZiele.Model;
+using ReiseZiele.Repo;
 using ReiseZiele.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddScoped<ReiseZielService>();
-builder.Services.AddScoped<ReiseZielRepo>();
+builder.Services.AddScoped<IBaseRepository>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

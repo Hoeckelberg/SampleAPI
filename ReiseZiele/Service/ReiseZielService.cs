@@ -27,16 +27,16 @@ namespace ReiseZiele.Service
         public GetReiseZielDTO GetById(int id)
         {
             var result = _repo.GetById(id);
-            if (result != null)
+            if (result == null)
             {
-                return new GetReiseZielDTO()
-                {
-                    Id=result.Id,
-                    Name=result.Name,
-                    Description=result.Description
-                };
+                throw new Exception("Incorrect ID");
             }
-            return null;
+            return new GetReiseZielDTO()
+            {
+                Id = result.Id,
+                Name = result.Name,
+                Description = result.Description
+            };
         }
         public GetReiseZielDTO Create(PostReiseZielDTO postReiseDTO)
         {
